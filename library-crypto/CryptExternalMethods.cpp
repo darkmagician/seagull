@@ -334,10 +334,11 @@ int create_algo_MD5_radius(char          *  P_msg,
   }
 
   MD5_Init(&L_Md5Ctx);
+   MD5_Update(&L_Md5Ctx, P_msg, P_msg_size);
   if (L_size_shared > 0) {
     MD5_Update(&L_Md5Ctx, P_shared_secret, L_size_shared);
   }
-  MD5_Update(&L_Md5Ctx, P_msg, P_msg_size);
+ 
   MD5_Final(P_result, &L_Md5Ctx);
 
   return (L_ret);

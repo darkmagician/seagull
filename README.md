@@ -1,9 +1,11 @@
 a copy of http://gull.sourceforge.net/
 
-Fixed a radius authentication problem
+Fixed a radius authentication problem in *libcrypto.so*.
+Use *build.libcrypto.conf* to replace *build.conf* for libcrypto.so build (windows support is also added.). The avaiable build is under *release-libcrypto*
 
 
-The message is built with the "Authenticator" field filled with 0x00000000000000000000000000000000 in the scenario. (Don't lose any zeros. There must be 32 zeros (16 bytes)) 
+
+The message is built with the "Authenticator" field filled with *0x00000000000000000000000000000000* in the scenario. (Don't lose any zeros. There must be 32 zeros (16 bytes)) 
 ```xml
 <Message name="Accounting-Request">
       <setfield name="Authenticator" value="0x00000000000000000000000000000000"> </setfield>
@@ -26,3 +28,6 @@ The authentication method must be defined in the dictionary with its name, the n
 </external-method> 
 ```
 lib_crypto.so is the library from the patch above. Please make the directory where it locates included in LD_LIBRARY_PATH.
+
+
+
